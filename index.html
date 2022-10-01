@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego del Ahorcado</title>
+    <link rel="stylesheet" href="./assets/sass/reset.css">
+    <link rel="stylesheet" href="./assets/sass/style.css">
+</head>
+<body>
+    <header>
+        <img src="./assets/images/logoalura.svg" alt="Logo Alura" id="logo">
+        <nav>
+            <ul class="info">
+                <li><a href="#">Acerca de</a></li>
+                <li><a href="#repositorio">Codigo</a></li>
+            </ul>
+            
+        </nav>
+    </header>
+    <main>
+        <section id="start" style="display: none">
+            <button id="iniciar-juego" class="btn-primary">Iniciar Juego</button>
+            <button id="agregar-palabras" class="btn-secondary">Agregar Palabras</button>
+        </section>
+
+        <section id="game">
+            <div class="orca-picture">
+                <canvas class="game__view-picture" id="canva-picture" width="300"></canvas>
+            </div>
+            <div class="words-picture">
+                <canvas class="game__view-word" id="canva-word" width="300"></canvas>
+                <div class="game-buttons">
+                    <button class="btn-primary">Nuevo Juego</button>
+                    <button class="btn-secondary">Rendirse</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu-add-words" style="display: none">
+            <div class="menu-add-words__space-text">
+                <div id="text-add-word">
+                    <textarea name="add-word" id="add-word" cols="30" rows="5" placeholder="Ingrese la palabra aquí" minlength="2" maxlength="8"></textarea>
+
+                    <div id="text-info">
+                        <img src="./assets/images/bi_exclamation-circle-fill.png" alt="Signo de exclamacion">
+                        <p>Solo palabras con mínimo 3 letras y máximo 8, que no contengan numeros, ni espacios.</p>
+                    </div>
+                </div>
+                
+                <div id="menu-btn-add">
+                    <button id="add-word" class="btn-primary">Agregar Palabra</button>
+                    <button id="regresar" class="btn-secondary">Regresar</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-copy">
+            <p>Desarrollado por: Andres Marin &#169; 2022 Todos los derechos reservados.</p>
+        </div>
+        <div class="footer-redes">
+            <ul class="redes-sociales">
+                <li><a href="https://github.com/AndresM94" target="_blank"><img src="./assets/images/github.svg" alt="Logo github"></a></li>
+                <li><a href="https://www.linkedin.com/in/andres-marin-developer/" target="_blank"><img src="./assets/images/logotipo-de-linkedin.svg" alt="Logo de linkedin"></a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="/assets/js/app.js"></script>
+</body>
+</html>

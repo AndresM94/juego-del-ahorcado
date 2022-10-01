@@ -91,7 +91,7 @@ body {
                 height: 300px;
 
                 .game__view-picture {
-                    width: 90%;
+                    width: 80%;
                     margin: auto;
                     padding: 5%;
                     height: 90%;
@@ -112,6 +112,12 @@ body {
                 gap: 20px;
                 display: flex;
                 flex-direction: column;
+
+                .game__view-word {
+                    width: 90%;
+                    height: 80%;
+                    padding: 10%;
+                }
 
                 .game-buttons {
                     display: flex;
@@ -174,6 +180,55 @@ body {
                 }
             }
         }
+
+        .view-modal {
+            width: 100%;
+            height: 735px;
+            backdrop-filter: blur(2px);
+            position: absolute;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            left: 0;
+
+            .view-modal__message{
+                width: 250px;
+                height: 100px;
+                position: relative;
+                background-color: $--background-body;
+                box-shadow: inset -3px -8px $--background-footer;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border: 4px solid #FAFDF9;
+                border-radius: 30px;
+
+                p {
+                    font-size: 16px;
+                    width: 200px;
+                    line-height: 1.1em;
+                    color: white;
+
+                    &:nth-child(2) {
+                        font-weight: 700;
+                    }
+                }
+
+                input {
+                    position: absolute;
+                    width: 100px;
+                    top: 80px;
+                }
+            }
+        }
+
+        .view-modal--scale{
+            height: 895px;
+        }
+
+        
     }
 
     footer {

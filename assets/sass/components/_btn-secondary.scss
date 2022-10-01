@@ -1,0 +1,21 @@
+$--background-footer: #283618;
+$--background-footer-dark: #1F2A13;
+$--color-letras: #FEFAE0;
+
+.btn-secondary {
+    cursor: pointer;
+    height: 3rem;
+    width: 200px;
+    color: $--color-letras;
+    border: 1px solid $--color-letras;
+    background-color: $--background-footer;
+    box-shadow: inset -2px -6px $--background-footer-dark;
+    border-radius: 32px;
+    -webkit-border-radius: 32px;
+    -moz-border-radius: 32px;
+    -ms-border-radius: 32px;
+    -o-border-radius: 32px;
+    &:hover {
+        opacity: 0.7;
+    }
+}

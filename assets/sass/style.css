@@ -1,0 +1,204 @@
+@charset "UTF-8";
+.btn-primary {
+  cursor: pointer;
+  height: 3rem;
+  width: 200px;
+  color: #FEFAE0;
+  border: 1px solid #FEFAE0;
+  background-color: #BC6C25;
+  box-shadow: inset -2px -6px #96561E;
+  border-radius: 32px;
+  -webkit-border-radius: 32px;
+  -moz-border-radius: 32px;
+  -ms-border-radius: 32px;
+  -o-border-radius: 32px;
+}
+.btn-primary:hover {
+  opacity: 0.7;
+}
+
+.btn-secondary {
+  cursor: pointer;
+  height: 3rem;
+  width: 200px;
+  color: #FEFAE0;
+  border: 1px solid #FEFAE0;
+  background-color: #283618;
+  box-shadow: inset -2px -6px #1F2A13;
+  border-radius: 32px;
+  -webkit-border-radius: 32px;
+  -moz-border-radius: 32px;
+  -ms-border-radius: 32px;
+  -o-border-radius: 32px;
+}
+.btn-secondary:hover {
+  opacity: 0.7;
+}
+
+body {
+  background-color: #606C38;
+  color: #FEFAE0;
+}
+body header {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  flex-direction: row;
+}
+body header #logo {
+  margin: 20px auto;
+  height: 50px;
+  width: 20%;
+}
+body header nav {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+}
+body header nav .info {
+  display: flex;
+  margin: 20px;
+  width: 90%;
+  justify-content: space-around;
+  border-radius: 32px;
+  border: solid 1px #FEFAE0;
+  align-items: center;
+  -webkit-border-radius: 32px;
+  -moz-border-radius: 32px;
+  -ms-border-radius: 32px;
+  -o-border-radius: 32px;
+}
+body header nav .info li a {
+  text-decoration: none;
+  color: #FEFAE0;
+}
+body header nav .info li a::before {
+  content: "• ";
+  color: #BC6C25;
+}
+body header nav .info li:hover {
+  text-decoration: underline;
+}
+body main {
+  width: 100%;
+  height: 600px;
+}
+body main #start {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+body main #game {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+body main #game .orca-picture {
+  width: 45%;
+  height: 300px;
+}
+body main #game .orca-picture .game__view-picture {
+  width: 90%;
+  margin: auto;
+  padding: 5%;
+  height: 90%;
+  background-color: #DDA15E;
+  box-shadow: inset -1.5px -5px #D1842C;
+  border: 5px solid #FEFAE0;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+body main #game .words-picture {
+  width: 45%;
+  height: 300px;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+body main #game .words-picture .game-buttons {
+  display: flex;
+  flex-direction: row;
+}
+body main #menu-add-words {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+body main #menu-add-words .menu-add-words__space-text {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+body main #menu-add-words .menu-add-words__space-text #text-add-word {
+  height: 100%;
+  width: 50%;
+}
+body main #menu-add-words .menu-add-words__space-text #text-add-word #add-word {
+  width: 100%;
+  height: 80%;
+  padding: 20px;
+  background-color: #606C38;
+  box-shadow: inset -7px -10px #283618;
+  color: #FEFAE0;
+  border: 4px solid #FEFAE0;
+  resize: none;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+}
+body main #menu-add-words .menu-add-words__space-text #text-add-word #add-word::-moz-placeholder {
+  color: #FEFAE0;
+}
+body main #menu-add-words .menu-add-words__space-text #text-add-word #add-word:-ms-input-placeholder {
+  color: #FEFAE0;
+}
+body main #menu-add-words .menu-add-words__space-text #text-add-word #add-word::placeholder {
+  color: #FEFAE0;
+}
+body main #menu-add-words .menu-add-words__space-text #text-add-word #text-info {
+  height: 10%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
+body main #menu-add-words .menu-add-words__space-text #text-add-word #text-info img {
+  width: 25px;
+  height: 25px;
+}
+body footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: #283618;
+  width: 100%;
+  height: 200px;
+}
+body footer .footer-copy p {
+  font-weight: 600;
+}
+body footer .footer-redes .redes-sociales {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}/*# sourceMappingURL=style.css.map */

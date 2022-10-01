@@ -33,7 +33,7 @@
                 <canvas class="game__view-word" id="canva-word" width="300"></canvas>
                 <div class="game-buttons">
                     <button class="btn-primary">Nuevo Juego</button>
-                    <button class="btn-secondary">Rendirse</button>
+                    <button class="btn-secondary" id="btn-rendirse">Rendirse</button>
                 </div>
             </div>
         </section>
@@ -53,6 +53,12 @@
                     <button id="add-word" class="btn-primary">Agregar Palabra</button>
                     <button id="regresar" class="btn-secondary">Regresar</button>
                 </div>
+            </div>
+        </section>
+        <section id="modal" class="view-modal main-scale" style="display: none;">
+            <div class="view-modal__message">
+                <p id="modal-message">Te rendiste, la palabra era: </p><p id="modal-message__span">gamer</p><p></p>
+                <input class="btn-main__style btn-modal--control" type="button" value="Cerrar" onclick="MensajeOcultoPantalla()">
             </div>
         </section>
     </main>

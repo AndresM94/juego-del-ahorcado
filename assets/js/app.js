@@ -12,12 +12,12 @@ let incorrecto = 1;
  */
 function limpiarVariables(){
     palabra = "";
-    letraspresionadaincorrecta = [];
-    letraspresionadacorrecta = [];
+    wordsIncorrects = [];
+    wordsCorrects = [];
     countglobal = 0;
     recibir = true;
-    incorrecto=1;
-    document.getElementById("btn-wf").value = "Rendirse";
+    incorrecto = 1;
+    document.getElementById("btn-rendirse").value = "Rendirse";
 }
 
 /**
@@ -153,6 +153,104 @@ function dibujarLineas(lineas){
 
 }
 
+function dibujarLetras(letra, posicion, enlinea, color){
+    var canvas = document.getElementById("canva-word");
+    var pincel = canvas.getContext("2d");
+
+    if(enlinea){
+        pincel.font="bold 70px Rubik, serif";
+        pincel.fillStyle = color;
+        if(letra != "i"){
+            pincel.fillText(letra.toUpperCase(),(37.5*posicion)+3,80,25);
+            return;
+        }
+        else{
+            pincel.fillText(letra.toUpperCase(),(37.5*posicion)+10,80,10);
+            return;
+        }
+    }
+    else{
+        pincel.font="bold 25px Rubik, serif";
+        pincel.fillStyle = "white";      
+        pincel.fillText(letra.toUpperCase(),(15*countglobal),148,10);
+        countglobal++;
+        return
+    }
+}
+
+function recibirLetras(letra){      
+    let teclaincorrecta = false;
+    let teclacorrecta = false;
+
+    if(wordsCorrects.length!=0){
+        for(var i = 0;i < wordsCorrects.length; i++){
+            if(letra == wordsCorrects[i]){
+                teclacorrecta = true;
+            }
+        }
+    }
+    if(teclacorrecta === true){return;}
+    if(teclacorrecta === false){
+        for(var i = 0; i<palabra.length; i++){
+            if(letra == palabra[i]){
+                teclaincorrecta = true;
+                wordsCorrects.push(letra);
+                dibujarLetras(letra,i,true,"white");
+                if(wordsCorrects.length == palabra.length){
+                    for(var i = 0; i<palabra.length; i++){
+                        dibujarLetras(palabra[i],i,true,"white");
+                    }
+                    MensajePantalla("Ganaste, la palabra era: ",palabra);
+                    //alert("Ganaste, la palabra era: " + palabra);
+                    recibir = false;
+                    return;
+                }
+            }
+        }
+    }
+    if(teclaincorrecta  === false){
+        let countaux = false;
+        if(wordsIncorrects.length!=0){
+            for(let i = 0; i < wordsIncorrects.length; i++){
+                if(letra==wordsIncorrects[i]){
+                    countaux = true;
+                }
+            }
+            if(countaux === false){
+                dibujarLetras(letra,i,false,"white");
+                wordsIncorrects.push(letra);
+                dibujarMunheco(incorrecto);
+                incorrecto++;
+                if(wordsIncorrects.length>6){
+                    for(let i = 0; i<palabra.length; i++){
+                        dibujarLetras(palabra[i],i,true,"red");  
+                    }
+                    MensajePantalla("Perdiste, la palabra era: ",palabra);
+                    //alert("Perdiste, la palabra era: " + palabra);
+                    recibir = false;
+                    return;
+                } 
+            }
+        }
+        else{
+            wordsIncorrects.push(letra);
+            dibujarLetras(letra,i,false,"white");
+            dibujarMunheco(incorrecto);
+            incorrecto++;
+        }
+    }
+
+    teclaincorrecta = false;
+    teclacorrecta = false;
+
+    //Imprirmir lo que hay en las listas de letras: correctas e incorrectas.     
+/*     console.log("Letra correctas");
+    console.log(letraspresionadacorrecta);
+    console.log("Letra incorrectas");
+    console.log(letraspresionadaincorrecta);  */
+
+}
+
 function esperarLetras(){
     document.addEventListener('keyup', (event) => {
         let keyName = event.key;
@@ -171,13 +269,27 @@ function esperarLetras(){
     }, false);
 }
 
+function MensajePantalla(texto,textoespecial){
+    let mensajePantalla = document.querySelector(".view-modal");
+    mensajePantalla.style.display = "flex";
+
+    document.querySelector("#modal-message").textContent = texto;
+    document.getElementById("modal-message__span").textContent = textoespecial;
+    document.querySelector(".view-modal__message").focus();
+}
+
+function MensajeOcultoPantalla(){
+    var mensajePantalla = document.querySelector(".view-modal");
+    mensajePantalla.style.display = "none";
+}
+
 function jugar(){
 
     limpiarVariables();
     //Imprimir la cantidad de palabras que hay para adivinar. 
     //console.log("la cantidad de palabras son: " + palabras.length);
 
-    palabra = palabras[getRandomIntInclusive(0,palabras.length-1)];
+    palabra = palabras[generarNumRamdom(0,palabras.length-1)];
     //Imprimir la palabra a adivinar.
     //console.log(palabra);
     

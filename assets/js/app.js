@@ -153,5 +153,46 @@ function dibujarLineas(lineas){
 
 }
 
-dibujarOrca();
-dibujarLineas(palabra.length)
+function esperarLetras(){
+    document.addEventListener('keyup', (event) => {
+        let keyName = event.key;
+        let llaveCodigo = event.keyCode; 
+        const pattern = new RegExp('^[A-Z]+$', 'i');
+
+        if(llaveCodigo >= 65 && llaveCodigo <=90){
+            //Imprime la letra presionada
+            //console.log(keyName);
+            if(pattern.test(keyName)){
+                if(recibir){
+                    recibirLetras(keyName);
+                }
+            }
+        }
+    }, false);
+}
+
+function jugar(){
+
+    limpiarVariables();
+    //Imprimir la cantidad de palabras que hay para adivinar. 
+    //console.log("la cantidad de palabras son: " + palabras.length);
+
+    palabra = palabras[getRandomIntInclusive(0,palabras.length-1)];
+    //Imprimir la palabra a adivinar.
+    //console.log(palabra);
+    
+    dibujarLineas(palabra.length);
+    dibujarOrca();
+    esperarLetras(); 
+}
+
+function pantallaJugar(){
+    let pantallaInicio = document.querySelector ("#start");
+    let pantallaJuego = document.querySelector("#game");
+    pantallaInicio.style.display = "none";
+    pantallaJuego.style.display = "flex"
+
+    document.getElementById('modal').classList.add('view-modal--scale');
+
+    jugar();
+}

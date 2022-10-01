@@ -20,12 +20,12 @@
         </nav>
     </header>
     <main>
-        <section id="start" style="display: none">
-            <button id="iniciar-juego" class="btn-primary">Iniciar Juego</button>
+        <section id="start">
+            <button id="iniciar-juego" class="btn-primary" onclick="pantallaJugar()">Iniciar Juego</button>
             <button id="agregar-palabras" class="btn-secondary">Agregar Palabras</button>
         </section>
 
-        <section id="game">
+        <section id="game" style="display: none">
             <div class="orca-picture">
                 <canvas class="game__view-picture" id="canva-picture" width="300"></canvas>
             </div>

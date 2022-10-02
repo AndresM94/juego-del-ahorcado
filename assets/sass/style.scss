@@ -2,6 +2,13 @@
 @import 'components/btn-secondary';
 @import 'components/btn-mobile';
 
+
+$--width-mobile: 368px;
+$--width-mobile-reduced: 320px;
+$--width-tablet: 768px;
+$--width-tablet-reduced: 720px;
+$--width-pc: 1366px;
+$--width-pc-reduced: 1320px;
 $--background-body: #606C38;
 $--background-footer: #283618;
 $--background-footer-dark: #1F2A13;
@@ -90,9 +97,11 @@ body {
             .orca-picture {
                 width: 45%;
                 height: 300px;
+                margin: 75px auto;
 
                 .game__view-picture {
                     width: 80%;
+                    max-width: 500px;
                     margin: auto;
                     padding: 5%;
                     height: 90%;
@@ -116,14 +125,16 @@ body {
 
                 .game__view-word {
                     width: 90%;
+                    max-width: 500px;
                     height: 80%;
                     padding: 10%;
                 }
 
                 .game__mobile {
-                    width: 100%;
+                    width: 90%;
                     display: flex;
-                    justify-content: space-around;
+                    gap: 10px;
+                    justify-content: flex-start;
 
                     .game__text-mobile {
                         width: 65%;
@@ -148,6 +159,7 @@ body {
 
                 .game-buttons {
                     display: flex;
+                    gap: 20px;
                     flex-direction: row;
                 }
             }
@@ -289,6 +301,8 @@ body {
         }
     }
 }
+
+// media screen
 
 // pages
 

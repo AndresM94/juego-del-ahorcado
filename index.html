@@ -31,6 +31,10 @@
             </div>
             <div class="words-picture">
                 <canvas class="game__view-word" id="canva-word" width="300"></canvas>
+                <div class="game__mobile">
+                    <input class="game__text-mobile" type="text" placeholder="Ingresa la letra aquí" minlength="1" maxlength="1">
+                    <button class="btn-mobile" onclick="enviarLetraMovil()"><img class="btn-mobile__image" src="./assets/images/arrow-right.svg" alt="flecha de enviar"></button>
+                </div>
                 <div class="game-buttons">
                     <button class="btn-primary" onclick="jugar()">Nuevo Juego</button>
                     <button class="btn-secondary" id="btn-rendirse">Rendirse</button>

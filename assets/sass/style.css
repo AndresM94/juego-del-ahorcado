@@ -35,6 +35,21 @@
   opacity: 0.7;
 }
 
+.btn-mobile {
+  width: 16%;
+  border-radius: 50px;
+  background-color: #BC6C25;
+  box-shadow: inset -1.5px -5px #96561E;
+  border: 4px solid #FAFDF9;
+}
+.btn-mobile:hover {
+  transform: scale(0.96);
+  -webkit-transform: scale(0.96);
+  -moz-transform: scale(0.96);
+  -ms-transform: scale(0.96);
+  -o-transform: scale(0.96);
+}
+
 body {
   background-color: #606C38;
   color: #FEFAE0;
@@ -121,7 +136,7 @@ body main #game .orca-picture .game__view-picture {
 body main #game .words-picture {
   width: 45%;
   height: 300px;
-  gap: 20px;
+  gap: 30px;
   display: flex;
   flex-direction: column;
 }
@@ -129,6 +144,37 @@ body main #game .words-picture .game__view-word {
   width: 90%;
   height: 80%;
   padding: 10%;
+}
+body main #game .words-picture .game__mobile {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+body main #game .words-picture .game__mobile .game__text-mobile {
+  width: 65%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  border: 4px solid #606C38;
+  color: #606C38;
+  background-color: #FEFAE0;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+body main #game .words-picture .game__mobile .game__text-mobile::-moz-placeholder {
+  color: #606C38;
+}
+body main #game .words-picture .game__mobile .game__text-mobile:-ms-input-placeholder {
+  color: #606C38;
+}
+body main #game .words-picture .game__mobile .game__text-mobile::placeholder {
+  color: #606C38;
 }
 body main #game .words-picture .game-buttons {
   display: flex;
@@ -248,4 +294,7 @@ body footer .footer-redes .redes-sociales {
   display: flex;
   flex-direction: row;
   gap: 20px;
+}
+body footer .footer-redes .redes-sociales li:hover {
+  opacity: 0.6;
 }/*# sourceMappingURL=style.css.map */

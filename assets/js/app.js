@@ -251,6 +251,35 @@ function recibirLetras(letra){
 
 }
 
+function pantallaInicio(){
+    let btnlogin = document.querySelector("#start");
+    let btnadd = document.querySelector("#menu-add-words");
+    let pantallaJuego = document.querySelector("#game");
+    // let pantallaInicio = document.querySelector(".view-main");
+    // pantallaInicio.style.display = "flex";
+    pantallaJuego.style.display = "none"
+    btnlogin.style.display = "flex";
+    btnadd.style.display = "none"
+
+    document.getElementById('modal').classList.remove('view-modal--scale');
+}
+
+function enviarLetraMovil(){
+    let letramobile = String(document.querySelector(".game__text-mobile").value);
+    const pattern = new RegExp('^[A-Z]+$', 'i');
+    if(pattern.test(letramobile)){
+        if(recibir){
+            recibirLetras(letramobile.toLowerCase());
+        }
+    }else{
+        MensajePantalla("Por favor ingrese letras",""); 
+        document.querySelector(".game__text-mobile").focus();     
+        //alert("Por favor ingrese letras")
+        }
+    document.querySelector(".game__text-mobile").value = "";
+
+}
+
 function esperarLetras(){
     document.addEventListener('keyup', (event) => {
         let keyName = event.key;
@@ -267,6 +296,27 @@ function esperarLetras(){
             }
         }
     }, false);
+}
+
+function agregarPalabra(){
+    let palabranueva = document.getElementById("add-word").value;
+    const pattern = new RegExp('^[A-Z]+$', 'i');
+    if(pattern.test(palabranueva)){
+        if((palabranueva.length>=3) && (palabranueva.length<=8)){
+            palabras.push(palabranueva);
+            MensajePantalla("La palabra: '" + palabranueva + "' se agregó","");
+            //alert("La palabra se agregó.");
+        }else{
+            MensajePantalla("La palabra no puede ser agregada. ","Lee las condiciones");
+            //alert("La palabra no puede ser agregada. lee las condiciones");
+        }
+    }else{
+        MensajePantalla("La palabra no puede ser agregada. ","Lee las condiciones");
+        //alert("La palabra no puede ser agregada.");
+        }
+    
+    document.getElementById("add-word").value = "";
+
 }
 
 function MensajePantalla(texto,textoespecial){
@@ -296,6 +346,28 @@ function jugar(){
     dibujarLineas(palabra.length);
     dibujarOrca();
     esperarLetras(); 
+}
+
+function pantallaAgregarPalabra(){
+    let btnlogin = document.querySelector("#start");
+    let btnadd = document.querySelector("#menu-add-words");
+    btnlogin.style.display = "none";
+    btnadd.style.display = "flex";
+}
+
+function rendirse(){
+    if(recibir){    
+        for(var i = 0; i<palabra.length; i++){
+            dibujarLetras(palabra[i],i,true,"Yellow");
+        }
+        MensajePantalla("Te rendiste, la palabra era: ",palabra);
+        //alert("Te rendiste, la palabra era: " + palabra);
+        document.getElementById("btn-rendirse").textContent = "Salir";
+        recibir = false;
+    }
+    else{
+        pantallaInicio();       
+    }
 }
 
 function pantallaJugar(){

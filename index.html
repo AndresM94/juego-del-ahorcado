@@ -22,7 +22,7 @@
     <main>
         <section id="start">
             <button id="iniciar-juego" class="btn-primary" onclick="pantallaJugar()">Iniciar Juego</button>
-            <button id="agregar-palabras" class="btn-secondary">Agregar Palabras</button>
+            <button id="agregar-palabras" class="btn-secondary" onclick="pantallaAgregarPalabra()">Agregar Palabras</button>
         </section>
 
         <section id="game" style="display: none">
@@ -37,7 +37,7 @@
                 </div>
                 <div class="game-buttons">
                     <button class="btn-primary" onclick="jugar()">Nuevo Juego</button>
-                    <button class="btn-secondary" id="btn-rendirse">Rendirse</button>
+                    <button class="btn-secondary" id="btn-rendirse" onclick="rendirse()">Rendirse</button>
                 </div>
             </div>
         </section>
@@ -54,8 +54,8 @@
                 </div>
                 
                 <div id="menu-btn-add">
-                    <button id="add-word" class="btn-primary">Agregar Palabra</button>
-                    <button id="regresar" class="btn-secondary">Regresar</button>
+                    <button id="add-word" class="btn-primary" onclick="agregarPalabra()">Agregar Palabra</button>
+                    <button id="regresar" class="btn-secondary" onclick="pantallaInicio()">Regresar</button>
                 </div>
             </div>
         </section>

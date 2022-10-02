@@ -178,15 +178,15 @@ body {
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                gap: 20px;
+                gap: 10px;
 
                 #text-add-word {
-                    height: 100%;
+                    height: 60%;
                     width: 50%;
 
                     #add-word {
                         width: 100%;
-                        height: 80%;
+                        height: 70%;
                         padding: 20px;
                         background-color: $--background-body;
                         box-shadow: inset -7px -10px $--background-footer;

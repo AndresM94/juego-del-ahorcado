@@ -153,6 +153,15 @@ function dibujarLineas(lineas){
 
 }
 
+/**
+ * It draws a letter on a canvas.
+ * @param letra - the letter to be drawn
+ * @param posicion - the position of the letter in the word
+ * @param enlinea - boolean, if true, the letter will be drawn in the line, if false, it will be drawn
+ * in the bottom.
+ * @param color - the color of the letter
+ * @returns the value of the variable countglobal.
+ */
 function dibujarLetras(letra, posicion, enlinea, color){
     var canvas = document.getElementById("canva-word");
     var pincel = canvas.getContext("2d");
@@ -178,6 +187,12 @@ function dibujarLetras(letra, posicion, enlinea, color){
     }
 }
 
+/**
+ * It receives a letter, checks if it's correct or not, and if it's correct, it draws it on the canvas,
+ * if it's incorrect, it draws the letter on the canvas and draws a part of the hangman.
+ * @param letra - the letter that the user has typed
+ * @returns the value of the variable recibir.
+ */
 function recibirLetras(letra){      
     let teclaincorrecta = false;
     let teclacorrecta = false;
@@ -201,7 +216,6 @@ function recibirLetras(letra){
                         dibujarLetras(palabra[i],i,true,"white");
                     }
                     MensajePantalla("Ganaste, la palabra era: ",palabra);
-                    //alert("Ganaste, la palabra era: " + palabra);
                     recibir = false;
                     return;
                 }
@@ -226,7 +240,6 @@ function recibirLetras(letra){
                         dibujarLetras(palabra[i],i,true,"red");  
                     }
                     MensajePantalla("Perdiste, la palabra era: ",palabra);
-                    //alert("Perdiste, la palabra era: " + palabra);
                     recibir = false;
                     return;
                 } 
@@ -242,21 +255,16 @@ function recibirLetras(letra){
 
     teclaincorrecta = false;
     teclacorrecta = false;
-
-    //Imprirmir lo que hay en las listas de letras: correctas e incorrectas.     
-/*     console.log("Letra correctas");
-    console.log(letraspresionadacorrecta);
-    console.log("Letra incorrectas");
-    console.log(letraspresionadaincorrecta);  */
-
 }
 
+/**
+ * When the user clicks the button with the id of 'start', the function will hide the element with the
+ * id of 'game' and show the element with the id of 'start'.
+ */
 function pantallaInicio(){
     let btnlogin = document.querySelector("#start");
     let btnadd = document.querySelector("#menu-add-words");
     let pantallaJuego = document.querySelector("#game");
-    // let pantallaInicio = document.querySelector(".view-main");
-    // pantallaInicio.style.display = "flex";
     pantallaJuego.style.display = "none"
     btnlogin.style.display = "flex";
     btnadd.style.display = "none"
@@ -264,6 +272,10 @@ function pantallaInicio(){
     document.getElementById('modal').classList.remove('view-modal--scale');
 }
 
+/**
+ * It takes the value of the input field, checks if it's a letter, and if it is, it sends it to another
+ * function.
+ */
 function enviarLetraMovil(){
     let letramobile = String(document.querySelector(".game__text-mobile").value);
     const pattern = new RegExp('^[A-Z]+$', 'i');
@@ -273,13 +285,16 @@ function enviarLetraMovil(){
         }
     }else{
         MensajePantalla("Por favor ingrese letras",""); 
-        document.querySelector(".game__text-mobile").focus();     
-        //alert("Por favor ingrese letras")
+        document.querySelector(".game__text-mobile").focus();
         }
     document.querySelector(".game__text-mobile").value = "";
 
 }
 
+/**
+ * The function esperarLetras() listens for keyup events, and if the keyCode is between 65 and 90, it
+ * calls the function recibirLetras() with the keyName as an argument.
+ */
 function esperarLetras(){
     document.addEventListener('keyup', (event) => {
         let keyName = event.key;
@@ -298,6 +313,10 @@ function esperarLetras(){
     }, false);
 }
 
+/**
+ * The function takes the value of the input field, checks if it's a word, and if it is, it checks if
+ * it's between 3 and 8 characters long, and if it is, it adds it to the array.
+ */
 function agregarPalabra(){
     let palabranueva = document.getElementById("add-word").value;
     const pattern = new RegExp('^[A-Z]+$', 'i');
@@ -319,6 +338,11 @@ function agregarPalabra(){
 
 }
 
+/**
+ * It displays a modal window with a message.
+ * @param texto - The text that will be displayed in the modal.
+ * @param textoespecial - The text that will be displayed in the span element.
+ */
 function MensajePantalla(texto,textoespecial){
     let mensajePantalla = document.querySelector(".view-modal");
     mensajePantalla.style.display = "flex";
@@ -328,11 +352,20 @@ function MensajePantalla(texto,textoespecial){
     document.querySelector(".view-modal__message").focus();
 }
 
+/**
+ * When the user clicks on the button, the modal will disappear.
+ */
 function MensajeOcultoPantalla(){
-    var mensajePantalla = document.querySelector(".view-modal");
+    let mensajePantalla = document.querySelector(".view-modal");
     mensajePantalla.style.display = "none";
 }
 
+/**
+ * The function jugar() is called when the user clicks the "Jugar" button. It clears the variables,
+ * generates a random number, and then uses that number to select a word from the array of words. It
+ * then draws the lines for the letters in the word, draws the orca, and waits for the user to enter a
+ * letter.
+ */
 function jugar(){
 
     limpiarVariables();
@@ -348,6 +381,10 @@ function jugar(){
     esperarLetras(); 
 }
 
+/**
+ * When the user clicks the button with the id of start, the button with the id of menu-add-words will
+ * be displayed.
+ */
 function pantallaAgregarPalabra(){
     let btnlogin = document.querySelector("#start");
     let btnadd = document.querySelector("#menu-add-words");
@@ -355,6 +392,10 @@ function pantallaAgregarPalabra(){
     btnadd.style.display = "flex";
 }
 
+/**
+ * If the user has not yet won or lost, then the function will display the word and change the button
+ * text to 'Salir' (exit). Otherwise, it will return to the start screen.
+ */
 function rendirse(){
     if(recibir){    
         for(var i = 0; i<palabra.length; i++){
@@ -370,6 +411,10 @@ function rendirse(){
     }
 }
 
+/**
+ * When the user clicks the button, hide the start screen and show the game screen, then call the
+ * jugar() function.
+ */
 function pantallaJugar(){
     let pantallaInicio = document.querySelector ("#start");
     let pantallaJuego = document.querySelector("#game");
